@@ -6,7 +6,7 @@ import seaborn as sns
 
 from utilities import change_width, show_values
 
-# Attach a text label above each bar, displaying its value
+# Attach a text label above each vertical bar, displaying its value
 def annotate_bar(bars):
   for bar in bars:
     height = bar.get_height()
@@ -15,7 +15,7 @@ def annotate_bar(bars):
                 xytext=(0, 3),  
                 textcoords="offset points",
                 ha='center', va='bottom')
-
+                
 
 # Read CSV files
 students_df = pd.read_csv("csv/students.csv")
@@ -162,8 +162,7 @@ plt.show()
 
 # Convert student_department, interviewer_name, interviewer_company to category datatype
 mocks_df["student_department"] = mocks_df["student_department"].astype("category")
-mocks_df["interviewer_name"] = mocks_df["interviewer_name"].astype("category")
-mocks_df["interviewer_company"] = mocks_df["interviewer_company"].astype("category")
+mocks_df["interviewer"] = mocks_df["interviewer"].astype("category")
 
 # Convert interview_date to date datatype
 mocks_df["interview_date"] = pd.to_datetime(mocks_df["interview_date"])
@@ -234,5 +233,49 @@ plt.yticks(np.arange(0.0, 2.75, 0.25))
 plt.xlabel("Department")
 plt.ylabel("Number of Interviews Attended")
 plt.title("AVERAGE NUMBER OF INTERVIEWS ATTENDED BY A STUDENT - DEPARTMENT WISE (ONLINE MOCK PLACEMENTS)")
+
+plt.show()
+
+'''
+/*********************************************************/
+BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 20/02/2021
+/*********************************************************/
+'''
+
+average_interview_score_20 = mocks_df[mocks_df["interview_date"] == "20-02-2021"].groupby(["interviewer"])["interview_total"].mean()
+interviewer_20 = average_interview_score_20.index
+average_score_20 = average_interview_score_20.values
+
+plot = sns.barplot(x=average_score_20, y=interviewer_20)
+
+for bar in plot.patches:
+  plot.text(0.75 + bar.get_width(), bar.get_y() + 0.55 * bar.get_height(), '{:1.2f}'.format(bar.get_width()), ha='center', va='center')
+
+plt.xticks(np.arange(0, 35, 5))
+plt.xlabel("Interview Score Out Of 30")
+plt.ylabel("Interviewer Name")
+plt.title("AVERAGE SCORE AWARDED BY EACH HR ON 20/02/2021")
+
+plt.show()
+
+'''
+/*********************************************************/
+BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 21/02/2021
+/*********************************************************/
+'''
+
+average_interview_score_21 = mocks_df[mocks_df["interview_date"] == "21-02-2021"].groupby(["interviewer"])["interview_total"].mean()
+interviewer_21 = average_interview_score_21.index
+average_score_21 = average_interview_score_21.values
+
+plot = sns.barplot(x=average_score_21, y=interviewer_21)
+
+for bar in plot.patches:
+  plot.text(0.75 + bar.get_width(), bar.get_y() + 0.55 * bar.get_height(), '{:1.2f}'.format(bar.get_width()), ha='center', va='center')
+
+plt.xticks(np.arange(0, 35, 5))
+plt.xlabel("Interview Score Out Of 30")
+plt.ylabel("Interviewer Name")
+plt.title("AVERAGE SCORE AWARDED BY EACH HR ON 21/02/2021")
 
 plt.show()
