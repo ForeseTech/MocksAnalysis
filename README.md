@@ -68,6 +68,10 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 | --------------------------------------------------------- | ------------------------------------------------------------------------- |     
 | <img src="graphs/average_interview_score_department.png"> | <img src="graphs/average_interview_attended_department.png">              |
 
+| __Average Score Awarded By Each HR On 20/02/2021__ | __Average Score Awarded By Each HR On 21/02/2021__ |
+| -------------------------------------------------- | -------------------------------------------------- |
+| <img src="graphs/average_hr_score_20.png">         | <img src="graphs/average_hr_score_20.png">         |
+
 ## Requirements
 * Git (Download from [here](https://git-scm.com/downloads))
 * Python 3.7 (Download from [here](https://www.python.org/downloads/release/python-376/))
