@@ -50,9 +50,9 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 ```
 
 ## Visualizations
-| __Number Of Students Who Participated in MOCK PLACEMENTS 2021__ | __Mode Preference Of Students By Department__               |
-| --------------------------------------------------------------- | ----------------------------------------------------------- |
-| <img src="graphs/count_students_department.png">                | <img src="graphs/count_students_preference_department.png"> |
+| __Number Of Students By Department Who Participated in MOCK PLACEMENTS 2021__ | __Mode Preference Of Students By Department__              |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------- | 
+| <img src="graphs/count_students_department.png">                              | <img src="graphs/count_students_preference_department.png"> |
 
 | __Average Aptitude Score By Department__                 | __Average Group Discussion Score By Department__                 |
 | -------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -64,8 +64,11 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 
 | __Average Score Awarded By Each HR On 20/02/2021__ | __Average Score Awarded By Each HR On 21/02/2021__ |
 | -------------------------------------------------- | -------------------------------------------------- |
-| <img src="graphs/average_hr_score_20.png">         | <img src="graphs/average_hr_score_20.png">         |
+| <img src="graphs/average_hr_score_20.png">         | <img src="graphs/average_hr_score_21.png">         |
 
+| __Number Of Students Interviewed By Each HR on 20/02/2021__ | __Number Of Students Interviewed By Each HR on 21/02/2021__ |
+| ----------------------------------------------------------- | ----------------------------------------------------------- |
+| <img src="graphs/count_students_interviewer_20.png">        | <img src="graphs/count_students_interviewer_21.png">        |
 ## Requirements
 * Git (Download from [here](https://git-scm.com/downloads))
 * Python 3.7 (Download from [here](https://www.python.org/downloads/release/python-376/))

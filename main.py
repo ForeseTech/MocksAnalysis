@@ -160,12 +160,8 @@ plt.title("AVERAGE GROUP DISCUSSION SCORE - DEPARTMENT WISE")
 
 plt.show()
 
-# Convert student_department, interviewer_name, interviewer_company to category datatype
+# Convert student_department, interviewer to category datatype
 mocks_df["student_department"] = mocks_df["student_department"].astype("category")
-mocks_df["interviewer"] = mocks_df["interviewer"].astype("category")
-
-# Convert interview_date to date datatype
-mocks_df["interview_date"] = pd.to_datetime(mocks_df["interview_date"])
 
 '''
 /**************************************************/
@@ -253,7 +249,7 @@ for bar in plot.patches:
 
 plt.xticks(np.arange(0, 35, 5))
 plt.xlabel("Interview Score Out Of 30")
-plt.ylabel("Interviewer Name")
+plt.ylabel("Interviewer")
 plt.title("AVERAGE SCORE AWARDED BY EACH HR ON 20/02/2021")
 
 plt.show()
@@ -275,7 +271,55 @@ for bar in plot.patches:
 
 plt.xticks(np.arange(0, 35, 5))
 plt.xlabel("Interview Score Out Of 30")
-plt.ylabel("Interviewer Name")
+plt.ylabel("Interviewer")
 plt.title("AVERAGE SCORE AWARDED BY EACH HR ON 21/02/2021")
+
+plt.show()
+
+'''
+/****************************************************************/
+BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED EACH HR ON 20/02/2021
+/****************************************************************/
+'''
+
+students_per_interviewer_20 = mocks_df[mocks_df["interview_date"] == "20-02-2021"]["interviewer"].value_counts()
+interviewer_20 = students_per_interviewer_20.index
+num_of_students_20 = students_per_interviewer_20.values
+
+# Create barplot 
+plot = sns.barplot(x=num_of_students_20, y=interviewer_20)
+
+# Annotate the bar graphs
+for bar in plot.patches:
+  plot.text(0.22 + bar.get_width(), bar.get_y() + 0.55 * bar.get_height(), '{:1.0f}'.format(bar.get_width()), ha='center', va='center')
+
+plt.xticks(np.arange(0, 30, 5))
+plt.xlabel("Number Of Students Interviewed")
+plt.ylabel("Interviewer")
+plt.title("NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 20/02/2021")
+
+plt.show()
+
+'''
+/****************************************************************/
+BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED EACH HR ON 21/02/2021
+/****************************************************************/
+'''
+
+students_per_interviewer_21 = mocks_df[mocks_df["interview_date"] == "21-02-2021"]["interviewer"].value_counts()
+interviewer_21 = students_per_interviewer_21.index
+num_of_students_21 = students_per_interviewer_21.values
+
+# Create barplot 
+plot = sns.barplot(x=num_of_students_21, y=interviewer_21)
+
+# Annotate the bar graphs
+for bar in plot.patches:
+  plot.text(0.25 + bar.get_width(), bar.get_y() + 0.55 * bar.get_height(), '{:1.0f}'.format(bar.get_width()), ha='center', va='center')
+
+plt.xticks(np.arange(0, 30, 5))
+plt.xlabel("Number Of Students Interviewed")
+plt.ylabel("Interviewer")
+plt.title("NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 21/02/2021")
 
 plt.show()
