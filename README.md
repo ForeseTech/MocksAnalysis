@@ -49,12 +49,6 @@ If you see the above error on Linux or MacOS, run the following command,
 sudo apt-get install python3-tk (Do not install it with pip or directly in the virtual environment)
 ```
 
-## Graphs
-* Average Score Given by Each HR on 20/02/2021.
-* Average Score Given by Each HR on 21/02/2021.
-* Number of Students Interviewed by Each HR - 20/02/2021
-* Number of Students Interviewer by Each HR - 21/02/2021
-
 ## Visualizations
 | __Number Of Students Who Participated in MOCK PLACEMENTS 2021__ | __Mode Preference Of Students By Department__               |
 | --------------------------------------------------------------- | ----------------------------------------------------------- |
@@ -127,4 +121,3 @@ git push origin master
 * Adhihariharan A U
 * Allen Manoj
 * Nikhilesh
-* Poonam
