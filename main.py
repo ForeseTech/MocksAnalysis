@@ -32,6 +32,27 @@ students_df["department"] = students_df["department"].astype("category")
 students_df["preference"] = students_df["preference"].astype("category")
 
 '''
+/**************************************************************************************************/
+PIE CHART FOR NUMBER OF STUDENTS WHO PARTICIPATED IN MOCK PLACEMENTS CATEGORIZED BY MODE PREFERENCE
+/**************************************************************************************************/
+'''
+
+# Number of interviews held on 20/01/2021 and 21/02/2021
+num_of_students_mode = students_df["preference"].value_counts()
+# Total number of students who participated in MOCK PLACEMENTS 
+total_students = np.sum(num_of_students_mode.values)
+
+# Number of interviews held on 20/01/2021 and 21/02/2021
+num_of_students_mode = students_df["preference"].value_counts(normalize=True)
+modes = num_of_students_mode.index
+num_of_students = num_of_students_mode.values
+
+# Create pie chart
+plt.pie(num_of_students, labels=modes, normalize=False, shadow=True, autopct=lambda pct: show_values(pct, total_students), startangle=90)
+plt.title("NUMBER OF STUDENTS WHO PARTICIPATED IN MOCK PLACEMENTS - MODE WISE")
+plt.show()
+
+'''
 /*********************************************************************************/
 PIE CHART FOR NUMBER OF STUDENTS PER DEPARTMENT WHO PARTICIPATED IN MOCK PLACEMENTS
 /*********************************************************************************/
