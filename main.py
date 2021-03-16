@@ -164,6 +164,27 @@ plt.show()
 mocks_df["student_department"] = mocks_df["student_department"].astype("category")
 
 '''
+/***********************************************************************/
+PIE CHART FOR NUMBER OF INTERVIEWS CONDUCTED ON 20/02/2021 AND 21/02/2021
+/***********************************************************************/
+'''
+
+# Number of interviews held on 20/01/2021 and 21/02/2021
+number_of_interviews_date = mocks_df["interview_date"].value_counts()
+# Total number of students who participated in MOCK PLACEMENTS 
+total_interviews = np.sum(number_of_interviews_date.values)
+
+# Number of interviews held on 20/01/2021 and 21/02/2021
+number_of_interviews_date = mocks_df["interview_date"].value_counts(normalize=True)
+dates = number_of_interviews_date.index
+num_of_interviews = number_of_interviews_date.values
+
+# Create pie chart
+plt.pie(num_of_interviews, labels=dates, normalize=False, shadow=True, autopct=lambda pct: show_values(pct, total_interviews), startangle=90)
+plt.title("NUMBER OF INTERVIEWS CONDUCTED DURING ONLINE MOCK PLACEMENTS - DATE WISE")
+plt.show()
+
+'''
 /**************************************************/
 BAR PLOT FOR AVERAGE INTERVIEW SCORE PER DEPARTMENT
 /**************************************************/
