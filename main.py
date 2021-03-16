@@ -43,7 +43,7 @@ num_of_students_mode = students_df["preference"].value_counts()
 total_students = np.sum(num_of_students_mode.values)
 
 # Number of interviews held on 20/01/2021 and 21/02/2021
-num_of_students_mode = students_df["preference"].value_counts(normalize=True)
+num_of_students_mode = students_df["preference"].value_counts(normalize=True).sort_index()
 modes = num_of_students_mode.index
 num_of_students = num_of_students_mode.values
 
