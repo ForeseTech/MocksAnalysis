@@ -88,7 +88,7 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 * `Matplotlib` and `Seaborn` for Data Visualization
 
 ## Contributing
-* __Please do not edit the mocks.csv file. Infact, do not even bother opening it.__
+* __Please do not edit any of the CSV files. Infact, do not even bother opening them.__
 
 * Periodically pull changes from the upstream repository
 ```
