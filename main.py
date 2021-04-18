@@ -236,6 +236,14 @@ plt.show()
 mocks_df["student_department"] = mocks_df["student_department"].astype("category")
 mocks_df["interview_mode"] = mocks_df["interview_mode"].astype("category")
 
+mocks_online_df = mocks_df[mocks_df["interview_mode"] == "Online"]
+mocks_offline_df = mocks_df[mocks_df["interview_mode"] == "Offline"]
+
+mocks_20_df = mocks_df[mocks_df["interview_date"] == "20-02-2021"]
+mocks_21_df = mocks_df[mocks_df["interview_date"] == "21-02-2021"]
+mocks_27_df = mocks_df[mocks_df["interview_date"] == "27-02-2021"]
+mocks_28_df = mocks_df[mocks_df["interview_date"] == "28-02-2021"]
+
 """
 /*********************************************************/
 PIE CHART FOR NUMBER OF INTERVIEWS CONDUCTED ON EACH DATE
@@ -261,27 +269,23 @@ plt.pie(
     autopct=lambda pct: show_values(pct, total_interviews),
     startangle=90,
 )
-plt.title("NUMBER OF INTERVIEWS CONDUCTED DURING ONLINE MOCK PLACEMENTS - DATE WISE")
+plt.title("NUMBER OF INTERVIEWS CONDUCTED DURING MOCK PLACEMENTS - DATE WISE")
 plt.show()
 
 """
-/************************************************************************************/
+/*****************************************************************************************/
 GROUPED BAR PLOT FOR AVERAGE INTERVIEW SCORE PER DEPARTMENT CATEGORIZED BY INTERVIEW MODE
-/************************************************************************************/
+/*****************************************************************************************/
 """
 
 # Series for the average interview score in each department
-average_interview_score_department_online = (
-    mocks_df[mocks_df["interview_mode"] == "Online"]
-    .groupby(["student_department"])["interview_total"]
-    .mean()
-)
+average_interview_score_department_online = mocks_online_df.groupby(
+    ["student_department"]
+)["interview_total"].mean()
 
-average_interview_score_department_offline = (
-    mocks_df[mocks_df["interview_mode"] == "Offline"]
-    .groupby(["student_department"])["interview_total"]
-    .mean()
-)
+average_interview_score_department_offline = mocks_offline_df.groupby(
+    ["student_department"]
+)["interview_total"].mean()
 
 average_interview_scores_online = (
     average_interview_score_department_online.values.round(2)
@@ -319,38 +323,30 @@ plt.legend()
 plt.show()
 
 """
-/************************************************************************************/
+/*******************************************************************************************************************/
 GROUPED BAR PLOT FOR AVERAGE NUMBER OF INTERVIEWS ATTENDED BY A STUDENT PER DEPARTMENT CATEGORIZED BY INTERVIEW MODE
-/************************************************************************************/
+/*******************************************************************************************************************/
 """
 
 # Series for the number of interviews attended by each department in online MOCK PLACEMENTS
-interviews_per_department_online = (
-    mocks_df[mocks_df["interview_mode"] == "Online"]
-    .groupby(["student_department"])["registration_number"]
-    .count()
-)
+interviews_per_department_online = mocks_online_df.groupby(["student_department"])[
+    "registration_number"
+].count()
 
 # Series for the number of interviews attended by each department in online MOCK PLACEMENTS
-interviews_per_department_offline = (
-    mocks_df[mocks_df["interview_mode"] == "Offline"]
-    .groupby(["student_department"])["registration_number"]
-    .count()
-)
+interviews_per_department_offline = mocks_offline_df.groupby(["student_department"])[
+    "registration_number"
+].count()
 
 # Series for the number of students from the department who participated in online MOCK PLACEMENTS
-students_per_department_online = (
-    mocks_df[mocks_df["interview_mode"] == "Online"]
-    .groupby(["student_department"])["registration_number"]
-    .nunique()
-)
+students_per_department_online = mocks_online_df.groupby(["student_department"])[
+    "registration_number"
+].nunique()
 
 # Series for the number of students from the department who participated in offline MOCK PLACEMENTS
-students_per_department_offline = (
-    mocks_df[mocks_df["interview_mode"] == "Offline"]
-    .groupby(["student_department"])["registration_number"]
-    .nunique()
-)
+students_per_department_offline = mocks_offline_df.groupby(["student_department"])[
+    "registration_number"
+].nunique()
 
 # Series for the average number of interviews a student attended in each department in online MOCK PLACEMENTS
 average_interview_department_online = interviews_per_department_online.divide(
@@ -407,11 +403,9 @@ BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 20/02/2021
 /*********************************************************/
 """
 
-average_interview_score_20 = (
-    mocks_df[mocks_df["interview_date"] == "20-02-2021"]
-    .groupby(["interviewer"])["interview_total"]
-    .mean()
-)
+average_interview_score_20 = mocks_20_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
 interviewer_20 = average_interview_score_20.index
 average_score_20 = average_interview_score_20.values
 
@@ -439,11 +433,9 @@ BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 21/02/2021
 /*********************************************************/
 """
 
-average_interview_score_21 = (
-    mocks_df[mocks_df["interview_date"] == "21-02-2021"]
-    .groupby(["interviewer"])["interview_total"]
-    .mean()
-)
+average_interview_score_21 = mocks_21_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
 interviewer_21 = average_interview_score_21.index
 average_score_21 = average_interview_score_21.values
 
@@ -471,11 +463,9 @@ BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 27/02/2021
 /*********************************************************/
 """
 
-average_interview_score_27 = (
-    mocks_df[mocks_df["interview_date"] == "27-02-2021"]
-    .groupby(["interviewer"])["interview_total"]
-    .mean()
-)
+average_interview_score_27 = mocks_27_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
 interviewer_27 = average_interview_score_27.index
 average_score_27 = average_interview_score_27.values
 
@@ -503,11 +493,9 @@ BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 28/02/2021
 /*********************************************************/
 """
 
-average_interview_score_28 = (
-    mocks_df[mocks_df["interview_date"] == "28-02-2021"]
-    .groupby(["interviewer"])["interview_total"]
-    .mean()
-)
+average_interview_score_28 = mocks_28_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
 interviewer_28 = average_interview_score_28.index
 average_score_28 = average_interview_score_28.values
 
@@ -535,9 +523,7 @@ BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 20/02/2021
 /*******************************************************************/
 """
 
-students_per_interviewer_20 = mocks_df[mocks_df["interview_date"] == "20-02-2021"][
-    "interviewer"
-].value_counts()
+students_per_interviewer_20 = mocks_20_df["interviewer"].value_counts()
 interviewer_20 = students_per_interviewer_20.index
 num_of_students_20 = students_per_interviewer_20.values
 
@@ -567,9 +553,7 @@ BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 21/02/2021
 /*******************************************************************/
 """
 
-students_per_interviewer_21 = mocks_df[mocks_df["interview_date"] == "21-02-2021"][
-    "interviewer"
-].value_counts()
+students_per_interviewer_21 = mocks_21_df["interviewer"].value_counts()
 interviewer_21 = students_per_interviewer_21.index
 num_of_students_21 = students_per_interviewer_21.values
 
@@ -599,9 +583,7 @@ BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 27/02/2021
 /*******************************************************************/
 """
 
-students_per_interviewer_27 = mocks_df[mocks_df["interview_date"] == "27-02-2021"][
-    "interviewer"
-].value_counts()
+students_per_interviewer_27 = mocks_27_df["interviewer"].value_counts()
 interviewer_27 = students_per_interviewer_27.index
 num_of_students_27 = students_per_interviewer_27.values
 
@@ -631,9 +613,7 @@ BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 28/02/2021
 /*******************************************************************/
 """
 
-students_per_interviewer_28 = mocks_df[mocks_df["interview_date"] == "28-02-2021"][
-    "interviewer"
-].value_counts()
+students_per_interviewer_28 = mocks_28_df["interviewer"].value_counts()
 interviewer_28 = students_per_interviewer_28.index
 num_of_students_28 = students_per_interviewer_28.values
 
