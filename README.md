@@ -62,9 +62,9 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | <img src="graphs/count_students_department.png">                              | <img src="graphs/count_students_preference_department.png">|
 
-| __Number Of Interviews Conducted On 20/02/2021 And 21/02/2021__               |
+| __Number Of Interviews Conducted During MOCK PLACEMENTS 2021__                |
 | ----------------------------------------------------------------------------- |
-| <img src="graphs/count_student_interviews_date.png">                          |
+| <img src="graphs/count_interviews_date.png">                                  |
 
 | __Average Interview Score By Department__                            | __Average Number Of Interviews Attended By A Student By Department__|
 | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
@@ -74,9 +74,17 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | <img src="graphs/count_students_interviewer_20.png">                         | <img src="graphs/count_students_interviewer_21.png">        |
 
+| __Number Of Students Interviewed By Each HR on 27/02/2021__                  | __Number Of Students Interviewed By Each HR on 28/02/2021__ |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| <img src="graphs/count_students_interviewer_27.png">                         | <img src="graphs/count_students_interviewer_28.png">        |
+
 | __Average Score Awarded By Each HR On 20/02/2021__                            | __Average Score Awarded By Each HR On 21/02/2021__ |
 | ----------------------------------------------------------------------------- | -------------------------------------------------- |
 | <img src="graphs/average_hr_score_20.png">                                    | <img src="graphs/average_hr_score_21.png">         |
+
+| __Average Score Awarded By Each HR On 27/02/2021__                            | __Average Score Awarded By Each HR On 28/02/2021__ |
+| ----------------------------------------------------------------------------- | -------------------------------------------------- |
+| <img src="graphs/average_hr_score_27.png">                                    | <img src="graphs/average_hr_score_28.png">         |
 
 ## Requirements
 * Git (Download from [here](https://git-scm.com/downloads))
