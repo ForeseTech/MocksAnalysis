@@ -62,9 +62,9 @@ sudo apt-get install python3-tk (Do not install it with pip or directly in the v
 | ----------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | <img src="graphs/count_students_department.png">                              | <img src="graphs/count_students_preference_department.png">|
 
-| __Number Of Interviews Conducted During MOCK PLACEMENTS 2021__                |
-| ----------------------------------------------------------------------------- |
-| <img src="graphs/count_interviews_date.png">                                  |
+| __Number Of HR's Who Participated in MOCK PLACEMENTS 2021__| __Number Of Interviews Conducted During MOCK PLACEMENTS 2021__                |
+| ---------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| <img src="graphs/count_interviewers_date.png">             | <img src="graphs/count_interviews_date.png">                                  |
 
 | __Average Interview Score By Department__                            | __Average Number Of Interviews Attended By A Student By Department__|
 | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
