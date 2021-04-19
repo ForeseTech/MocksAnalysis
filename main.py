@@ -398,10 +398,25 @@ plt.legend()
 plt.show()
 
 """
-/*/
+/**********************************************************************************/
 PIE CHART FOR NUMBER OF INTERVIEWERS WHO PATICIPATED IN MOCK PLACEMENTS - DATE WISE
-/*/
+/**********************************************************************************/
 """
+
+num_of_interviewers_date = mocks_df.groupby(['interview_date'])['interviewer'].nunique()
+dates = num_of_interviewers_date.index
+total_interviewers = np.sum(num_of_interviewers_date.values)
+
+plt.pie(
+  num_of_interviewers_date,
+  labels=dates,
+  shadow=True,
+  autopct=lambda pct: show_values(pct, total_interviewers),
+  startangle=90,
+)
+
+plt.title("NUMBER OF HR's WHO PARTICIPATED IN MOCK PLACEMENTS - DATE WISE")
+plt.show()
 
 # def average_score_interviewer(average_scores, interviewer, date):
 #     plot = sns.barplot(x=average_score_20, y=interviewer_20)
