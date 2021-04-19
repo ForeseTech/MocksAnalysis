@@ -418,138 +418,138 @@ plt.pie(
 plt.title("NUMBER OF HR's WHO PARTICIPATED IN MOCK PLACEMENTS - DATE WISE")
 plt.show()
 
-# def average_score_interviewer(average_scores, interviewer, date):
-#     plot = sns.barplot(x=average_score_20, y=interviewer_20)
+def average_score_interviewer(average_scores, interviewer, date):
+    plot = sns.barplot(x=average_score_20, y=interviewer_20)
 
-#     for bar in plot.patches:
-#         plot.text(
-#             0.75 + bar.get_width(),
-#             bar.get_y() + 0.55 * bar.get_height(),
-#             "{:1.2f}".format(bar.get_width()),
-#             ha="center",
-#             va="center",
-#         )
+    for bar in plot.patches:
+        plot.text(
+            0.75 + bar.get_width(),
+            bar.get_y() + 0.55 * bar.get_height(),
+            "{:1.2f}".format(bar.get_width()),
+            ha="center",
+            va="center",
+        )
 
-#     plt.xticks(np.arange(0, 35, 5))
-#     plt.xlabel("Interview Score Out Of 30")
-#     plt.ylabel("Interviewer")
-#     plt.title("AVERAGE SCORE AWARDED BY EACH HR ON {}".format(date))
+    plt.xticks(np.arange(0, 35, 5))
+    plt.xlabel("Interview Score Out Of 30")
+    plt.ylabel("Interviewer")
+    plt.title("AVERAGE SCORE AWARDED BY EACH HR ON {}".format(date))
 
-#     plt.show()
+    plt.show()
 
-# """
-# /*********************************************************/
-# BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 20/02/2021
-# /*********************************************************/
-# """
+"""
+/*********************************************************/
+BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 20/02/2021
+/*********************************************************/
+"""
 
-# average_interview_score_20 = mocks_20_df.groupby(["interviewer"])[
-#     "interview_total"
-# ].mean()
-# interviewer_20 = average_interview_score_20.index
-# average_score_20 = average_interview_score_20.values
-# average_score_interviewer(average_score_20, interviewer_20, "20/02/2021")
+average_interview_score_20 = mocks_20_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
+interviewer_20 = average_interview_score_20.index
+average_score_20 = average_interview_score_20.values
+average_score_interviewer(average_score_20, interviewer_20, "20/02/2021")
 
-# """
-# /*********************************************************/
-# BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 21/02/2021
-# /*********************************************************/
-# """
+"""
+/*********************************************************/
+BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 21/02/2021
+/*********************************************************/
+"""
 
-# average_interview_score_21 = mocks_21_df.groupby(["interviewer"])[
-#     "interview_total"
-# ].mean()
-# interviewer_21 = average_interview_score_21.index
-# average_score_21 = average_interview_score_21.values
-# average_score_interviewer(average_score_21, interviewer_21, "21/02/2021")
+average_interview_score_21 = mocks_21_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
+interviewer_21 = average_interview_score_21.index
+average_score_21 = average_interview_score_21.values
+average_score_interviewer(average_score_21, interviewer_21, "21/02/2021")
 
-# """
-# /*********************************************************/
-# BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 27/02/2021
-# /*********************************************************/
-# """
+"""
+/*********************************************************/
+BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 27/02/2021
+/*********************************************************/
+"""
 
-# average_interview_score_27 = mocks_27_df.groupby(["interviewer"])[
-#     "interview_total"
-# ].mean()
-# interviewer_27 = average_interview_score_27.index
-# average_score_27 = average_interview_score_27.values
-# average_score_interviewer(average_score_27, interviewer_27, "27/02/2021")
+average_interview_score_27 = mocks_27_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
+interviewer_27 = average_interview_score_27.index
+average_score_27 = average_interview_score_27.values
+average_score_interviewer(average_score_27, interviewer_27, "27/02/2021")
 
-# """
-# /*********************************************************/
-# BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 28/02/2021
-# /*********************************************************/
-# """
+"""
+/*********************************************************/
+BAR PLOT FOR AVERAGE SCORE AWARDED BY EACH HR ON 28/02/2021
+/*********************************************************/
+"""
 
-# average_interview_score_28 = mocks_28_df.groupby(["interviewer"])[
-#     "interview_total"
-# ].mean()
-# interviewer_28 = average_interview_score_28.index
-# average_score_28 = average_interview_score_28.values
-# average_score_interviewer(average_score_28, interviewer_28, "28/02/2021")
+average_interview_score_28 = mocks_28_df.groupby(["interviewer"])[
+    "interview_total"
+].mean()
+interviewer_28 = average_interview_score_28.index
+average_score_28 = average_interview_score_28.values
+average_score_interviewer(average_score_28, interviewer_28, "28/02/2021")
 
-# def students_per_interviewer(interviewers, students, date, xrange):
-#     # Create barplot
-#     plot = sns.barplot(x=students, y=interviewers)
+def students_per_interviewer(interviewers, students, date, xrange):
+    # Create barplot
+    plot = sns.barplot(x=students, y=interviewers)
 
-#     # Annotate the bar graphs
-#     for bar in plot.patches:
-#         plot.text(
-#             0.22 + bar.get_width(),
-#             bar.get_y() + 0.55 * bar.get_height(),
-#             "{:1.0f}".format(bar.get_width()),
-#             ha="center",
-#             va="center",
-#         )
+    # Annotate the bar graphs
+    for bar in plot.patches:
+        plot.text(
+            0.22 + bar.get_width(),
+            bar.get_y() + 0.55 * bar.get_height(),
+            "{:1.0f}".format(bar.get_width()),
+            ha="center",
+            va="center",
+        )
     
-#     plt.xticks(np.arange(0, xrange + 5, 5))
-#     plt.xlabel("Number Of Students Interviewed")
-#     plt.ylabel("Interviewer")
-#     plt.title("NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON {}".format(date))
+    plt.xticks(np.arange(0, xrange + 5, 5))
+    plt.xlabel("Number Of Students Interviewed")
+    plt.ylabel("Interviewer")
+    plt.title("NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON {}".format(date))
 
-#     plt.show()
+    plt.show()
 
-# """
-# /*******************************************************************/
-# BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 20/02/2021
-# /*******************************************************************/
-# """
+"""
+/*******************************************************************/
+BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 20/02/2021
+/*******************************************************************/
+"""
 
-# students_per_interviewer_20 = mocks_20_df["interviewer"].value_counts()
-# interviewer_20 = students_per_interviewer_20.index
-# num_of_students_20 = students_per_interviewer_20.values
-# students_per_interviewer(interviewer_20, num_of_students_20, "20/02/2021", 15)
+students_per_interviewer_20 = mocks_20_df["interviewer"].value_counts()
+interviewer_20 = students_per_interviewer_20.index
+num_of_students_20 = students_per_interviewer_20.values
+students_per_interviewer(interviewer_20, num_of_students_20, "20/02/2021", 15)
 
-# """
-# /*******************************************************************/
-# BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 21/02/2021
-# /*******************************************************************/
-# """
+"""
+/*******************************************************************/
+BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 21/02/2021
+/*******************************************************************/
+"""
 
-# students_per_interviewer_21 = mocks_21_df["interviewer"].value_counts()
-# interviewer_21 = students_per_interviewer_21.index
-# num_of_students_21 = students_per_interviewer_21.values
-# students_per_interviewer(interviewer_21, num_of_students_21, "21/02/2021", 25)
+students_per_interviewer_21 = mocks_21_df["interviewer"].value_counts()
+interviewer_21 = students_per_interviewer_21.index
+num_of_students_21 = students_per_interviewer_21.values
+students_per_interviewer(interviewer_21, num_of_students_21, "21/02/2021", 25)
 
-# """
-# /*******************************************************************/
-# BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 27/02/2021
-# /*******************************************************************/
-# """
+"""
+/*******************************************************************/
+BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 27/02/2021
+/*******************************************************************/
+"""
 
-# students_per_interviewer_27 = mocks_27_df["interviewer"].value_counts()
-# interviewer_27 = students_per_interviewer_27.index
-# num_of_students_27 = students_per_interviewer_27.values
-# students_per_interviewer(interviewer_27, num_of_students_27, "27/02/2021", 40)
+students_per_interviewer_27 = mocks_27_df["interviewer"].value_counts()
+interviewer_27 = students_per_interviewer_27.index
+num_of_students_27 = students_per_interviewer_27.values
+students_per_interviewer(interviewer_27, num_of_students_27, "27/02/2021", 40)
 
-# """
-# /*******************************************************************/
-# BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 28/02/2021
-# /*******************************************************************/
-# """
+"""
+/*******************************************************************/
+BAR PLOT FOR NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON 28/02/2021
+/*******************************************************************/
+"""
 
-# students_per_interviewer_28 = mocks_28_df["interviewer"].value_counts()
-# interviewer_28 = students_per_interviewer_28.index
-# num_of_students_28 = students_per_interviewer_28.values
-# students_per_interviewer(interviewer_28, num_of_students_28, "28/02/2021", 30)
+students_per_interviewer_28 = mocks_28_df["interviewer"].value_counts()
+interviewer_28 = students_per_interviewer_28.index
+num_of_students_28 = students_per_interviewer_28.values
+students_per_interviewer(interviewer_28, num_of_students_28, "28/02/2021", 30)
