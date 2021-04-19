@@ -4,21 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from utilities import change_width, show_values
-
-# Attach a text label above each vertical bar, displaying its value
-def annotate_bar(bars):
-    for bar in bars:
-        height = bar.get_height()
-        plt.annotate(
-            "{}".format(height),
-            xy=(bar.get_x() + bar.get_width() / 2, height),
-            xytext=(0, 3),
-            textcoords="offset points",
-            ha="center",
-            va="bottom",
-        )
-
+from utilities import change_width, show_values, annotate_bar
 
 # Read CSV files
 students_df = pd.read_csv("csv/students.csv")
@@ -28,7 +14,6 @@ mocks_df = pd.read_csv("csv/mocks.csv")
 
 # Set style and palette
 sns.set_theme(style="darkgrid", palette="husl")
-
 
 # Convert department and preference to category datatype
 students_df["department"] = students_df["department"].astype("category")
@@ -250,16 +235,16 @@ PIE CHART FOR NUMBER OF INTERVIEWERS WHO PATICIPATED IN MOCK PLACEMENTS - DATE W
 /**********************************************************************************/
 """
 
-num_of_interviewers_date = mocks_df.groupby(['interview_date'])['interviewer'].nunique()
+num_of_interviewers_date = mocks_df.groupby(["interview_date"])["interviewer"].nunique()
 dates = num_of_interviewers_date.index
 total_interviewers = np.sum(num_of_interviewers_date.values)
 
 plt.pie(
-  num_of_interviewers_date,
-  labels=dates,
-  shadow=True,
-  autopct=lambda pct: show_values(pct, total_interviewers),
-  startangle=90,
+    num_of_interviewers_date,
+    labels=dates,
+    shadow=True,
+    autopct=lambda pct: show_values(pct, total_interviewers),
+    startangle=90,
 )
 
 plt.title("NUMBER OF HR's WHO PARTICIPATED IN MOCK PLACEMENTS - DATE WISE")
@@ -418,6 +403,7 @@ plt.title("AVERAGE NUMBER OF INTERVIEWS ATTENDED BY A STUDENT - DEPARTMENT WISE"
 plt.legend()
 plt.show()
 
+
 def average_score_interviewer(average_scores, interviewer, date):
     plot = sns.barplot(x=average_score_20, y=interviewer_20)
 
@@ -436,6 +422,7 @@ def average_score_interviewer(average_scores, interviewer, date):
     plt.title("AVERAGE SCORE AWARDED BY EACH HR ON {}".format(date))
 
     plt.show()
+
 
 """
 /*********************************************************/
@@ -489,6 +476,7 @@ interviewer_28 = average_interview_score_28.index
 average_score_28 = average_interview_score_28.values
 average_score_interviewer(average_score_28, interviewer_28, "28/02/2021")
 
+
 def students_per_interviewer(interviewers, students, date, xrange):
     # Create barplot
     plot = sns.barplot(x=students, y=interviewers)
@@ -502,13 +490,14 @@ def students_per_interviewer(interviewers, students, date, xrange):
             ha="center",
             va="center",
         )
-    
+
     plt.xticks(np.arange(0, xrange + 5, 5))
     plt.xlabel("Number Of Students Interviewed")
     plt.ylabel("Interviewer")
     plt.title("NUMBER OF STUDENTS INTERVIEWED BY EACH HR ON {}".format(date))
 
     plt.show()
+
 
 """
 /*******************************************************************/
