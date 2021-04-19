@@ -245,6 +245,27 @@ mocks_27_df = mocks_df[mocks_df["interview_date"] == "27-02-2021"]
 mocks_28_df = mocks_df[mocks_df["interview_date"] == "28-02-2021"]
 
 """
+/**********************************************************************************/
+PIE CHART FOR NUMBER OF INTERVIEWERS WHO PATICIPATED IN MOCK PLACEMENTS - DATE WISE
+/**********************************************************************************/
+"""
+
+num_of_interviewers_date = mocks_df.groupby(['interview_date'])['interviewer'].nunique()
+dates = num_of_interviewers_date.index
+total_interviewers = np.sum(num_of_interviewers_date.values)
+
+plt.pie(
+  num_of_interviewers_date,
+  labels=dates,
+  shadow=True,
+  autopct=lambda pct: show_values(pct, total_interviewers),
+  startangle=90,
+)
+
+plt.title("NUMBER OF HR's WHO PARTICIPATED IN MOCK PLACEMENTS - DATE WISE")
+plt.show()
+
+"""
 /*********************************************************/
 PIE CHART FOR NUMBER OF INTERVIEWS CONDUCTED ON EACH DATE
 /*********************************************************/
@@ -395,27 +416,6 @@ plt.ylabel("Number of Interviews Attended")
 plt.title("AVERAGE NUMBER OF INTERVIEWS ATTENDED BY A STUDENT - DEPARTMENT WISE")
 
 plt.legend()
-plt.show()
-
-"""
-/**********************************************************************************/
-PIE CHART FOR NUMBER OF INTERVIEWERS WHO PATICIPATED IN MOCK PLACEMENTS - DATE WISE
-/**********************************************************************************/
-"""
-
-num_of_interviewers_date = mocks_df.groupby(['interview_date'])['interviewer'].nunique()
-dates = num_of_interviewers_date.index
-total_interviewers = np.sum(num_of_interviewers_date.values)
-
-plt.pie(
-  num_of_interviewers_date,
-  labels=dates,
-  shadow=True,
-  autopct=lambda pct: show_values(pct, total_interviewers),
-  startangle=90,
-)
-
-plt.title("NUMBER OF HR's WHO PARTICIPATED IN MOCK PLACEMENTS - DATE WISE")
 plt.show()
 
 def average_score_interviewer(average_scores, interviewer, date):
