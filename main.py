@@ -4,21 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from utilities import change_width, show_values
-
-# Attach a text label above each vertical bar, displaying its value
-def annotate_bar(bars):
-    for bar in bars:
-        height = bar.get_height()
-        plt.annotate(
-            "{}".format(height),
-            xy=(bar.get_x() + bar.get_width() / 2, height),
-            xytext=(0, 3),
-            textcoords="offset points",
-            ha="center",
-            va="bottom",
-        )
-
+from utilities import change_width, show_values, annotate_bar
 
 # Read CSV files
 students_df = pd.read_csv("csv/students.csv")
@@ -28,7 +14,6 @@ mocks_df = pd.read_csv("csv/mocks.csv")
 
 # Set style and palette
 sns.set_theme(style="darkgrid", palette="husl")
-
 
 # Convert department and preference to category datatype
 students_df["department"] = students_df["department"].astype("category")
